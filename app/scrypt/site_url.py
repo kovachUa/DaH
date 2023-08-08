@@ -1,23 +1,25 @@
 import json
+import sys
 
-def add_website_with_rss(data, name, site, rss):
-    data["websites_with_rss"].append({"name": name, "site": site, "rss": rss})
+def add_website(data, site):
+    data["url"].append(site)
 
 def main():
-    data = {"websites_with_rss": []}
+    if len(sys.argv) != 2:
+        return
 
-    while True:
-        address = input("Введіть адресу сайту (або введіть 'exit' для завершення): ")
-        if address.lower() == "exit":
-            break
-        name = input("Введіть назву сайту: ")
-        rss = input("Введіть адресу RSS для сайту (або натисніть Enter, якщо відсутня): ")
-        add_website_with_rss(data, name, address, rss)
+    website_address = sys.argv[1]
 
-    data["websites_with_rss"] = sorted(data["websites_with_rss"], key=lambda x: x["name"].lower())
+    try:
+        with open("site.json", "r") as site_file:
+            data = json.load(site_file)
+    except FileNotFoundError:
+        data = {"url": []}
+
+    add_website(data, website_address)
 
     with open("site.json", "w") as site_file:
-        json.dump(data["websites_with_rss"], site_file, indent=4)
+        json.dump(data, site_file, indent=4)
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./dockerfile/web
+    volumes:
+      - data/mirror:/mirror
+      - data/json:/json
+  git:
+    build:
+      context: .
+      dockerfile: ./dockerfile/git
+    volumes:
+      - data/mirror:/mirror
+      - data/json:/json
+  httrack:
+    build:
+      context: .
+      dockerfile: ./dockerfile/httrack
+    volumes:
+      - data/mirror:/mirror
+      - data/json:/json
+volumes:
+  data:
+    driver: local
+    localPath: ./data
+    mode: rw

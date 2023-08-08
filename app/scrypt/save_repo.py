@@ -4,6 +4,8 @@ import json
 import sys
 
 def get_repositories(api_url):
+    # каталог подефолту
+    dname = '/home/kovach/bmirror/reposgit'
     # Визначаємо ім'я для папки
     name = api_url.split("/")[-2]
 
@@ -25,7 +27,6 @@ def get_repositories(api_url):
         try:
             data = response.json()
         except json.JSONDecodeError:
-            print("Помилка декодування JSON даних.")
             return
 
         # Збираємо посилання на репозиторії в масив
@@ -35,18 +36,14 @@ def get_repositories(api_url):
         # Перевіряємо чи є наступна сторінка пагінації
         if data:
             fetch_repositories(page + 1)
-
-    print("Обробка:", api_url)
+    
     fetch_repositories()
 
     # Записуємо посилання на репозиторії у JSON-файл
-    with open(f"reposgit/{name}.json", "w") as file:
+    with open(f"{dname}/{name}.json", "w") as file:
         json.dump({"urls": repositories}, file)
 
 if __name__ == "__main__":
     # Передайте URL GitHub API як аргумент командного рядка
-    if len(sys.argv) != 2:
-        print("Використання: python script.py <GitHub API URL>")
-    else:
         api_url = sys.argv[1]
         get_repositories(api_url)
