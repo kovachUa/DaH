@@ -1,5 +1,6 @@
 version: '3'
 services:
+  
   web:
     build:
       context: .
@@ -7,6 +8,9 @@ services:
     volumes:
       - data/mirror:/mirror
       - data/json:/json
+    port:
+      - 5001:5001
+  
   git:
     build:
       context: .
@@ -14,6 +18,7 @@ services:
     volumes:
       - data/mirror:/mirror
       - data/json:/json
+  
   httrack:
     build:
       context: .
