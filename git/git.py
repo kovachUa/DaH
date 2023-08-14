@@ -16,13 +16,13 @@ def update_repo(repo_directory):
         print(f"Error: Repository directory '{repo_directory}' does not exist.")
 
 def main():
-    json_directory = "./reposgit"  # Замініть це на шлях до вашого каталогу з json файлами
+    json_directory = "./dah/json/git"  # Замініть це на шлях до вашого каталогу з json файлами
 
     # Отримуємо список файлів з розширенням .json у каталозі
     json_files = [file for file in os.listdir(json_directory) if file.endswith('.json')]
 
     # Попросимо користувача вказати шлях для збереження репозиторіїв
-    target_root_directory = "./g"
+    target_root_directory = "/dah/mirror/git"
 
     for json_file in json_files:
         with open(os.path.join(json_directory, json_file), 'r') as file:

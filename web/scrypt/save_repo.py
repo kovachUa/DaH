@@ -5,7 +5,7 @@ import sys
 
 def get_repositories(api_url):
     # каталог подефолту
-    dname = './reposgit'
+    dname = '/json/repos'
     # Визначаємо ім'я для папки
     name = api_url.split("/")[-2]
 

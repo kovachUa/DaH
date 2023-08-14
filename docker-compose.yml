@@ -4,30 +4,17 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./dockerfile/web
+      dockerfile: ./web/Dockerfile
     volumes:
-      - data/mirror:/mirror
-      - data/json:/json
-    port:
-      - 5001:5001
-  
-  git:
-    build:
-      context: .
-      dockerfile: ./dockerfile/git
-    volumes:
-      - data/mirror:/mirror
-      - data/json:/json
-  
+      - ./data/mirror:/mirror
+      - ./data/json:/json
+    ports:
+      - 9000:5001
+
   httrack:
     build:
       context: .
-      dockerfile: ./dockerfile/httrack
+      dockerfile: ./httrack/Dockerfile
     volumes:
-      - data/mirror:/mirror
-      - data/json:/json
-volumes:
-  data:
-    driver: local
-    localPath: ./data
-    mode: rw
+      - ./data/mirror:/mirror
+      - ./data/json:/json
