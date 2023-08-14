@@ -18,3 +18,10 @@ services:
     volumes:
       - ./data/mirror:/mirror
       - ./data/json:/json
+  git:
+    build:
+      context: .
+      dockerfile: ./git/Dockerfile
+    volumes:
+      - ./data/mirror:/mirror
+      - ./data/json:/json

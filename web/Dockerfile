@@ -1,17 +1,8 @@
-# Використовуємо базовий образ Python 3.8 Slim
 FROM python:3.8-slim
-
-# Встановлюємо залежності з файлу requirements.txt
 RUN pip install flask requests
-
-# Створюємо непривільованого користувача та групу
-
-# Створюємо робочий каталог /web та встановлюємо власника
+RUN useradd -ms /bin/bash user
 WORKDIR /app
-# Копіюємо усі файли проекту з локального каталогу "web" до контейнера "/web"
 COPY * /app
-
-# Переключаємося на користувача myuser перед запуском
-
-# Запускаємо додаток Flask при запуску контейнера
+USER user
+CMD ["chown","user:user","/mirror","/json"]
 CMD ["python3", "web.py"]
