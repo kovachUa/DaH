@@ -5,9 +5,8 @@ import sys
 
 def get_repositories(api_url):
     dname = '/json/git'
-    name = api_url.split("/")[-1]
-  
-    api_url = f"https://api.github.com/orgs/{name}/repos"
+    org_name = api_url.split("/")[-1]
+    api_url = f"https://api.github.com/orgs/{org_name}/repos"
    
     repositories = []
 
@@ -29,12 +28,15 @@ def get_repositories(api_url):
             fetch_repositories(page + 1)
     
     fetch_repositories()
-  
-    with open(f"{dname}/{name}.json", "w") as file:
+    
+    os.makedirs(dname, exist_ok=True)
+    with open(f"{dname}/{org_name}.json", "w") as file:
         json.dump({"urls": repositories}, file)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
+        print("Usage: python script.py <API_URL>")
+        sys.exit(1)
     else:
         api_url = sys.argv[1]
         get_repositories(api_url)

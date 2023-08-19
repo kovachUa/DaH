@@ -3,22 +3,31 @@ import json
 import subprocess
 import time
 
-sleep_time = 3600
-wait_time = 600
+sleep_time = 3
+wait_time = 300  # П'ять хвилин (300 секунд)
 
 def download_repo(repo_url, target_directory):
     if not os.path.exists(target_directory):
         os.makedirs(target_directory)
 
-    subprocess.run(["git", "clone", repo_url, target_directory])
+    subprocess.run(["git", "clone", "--config", "core.askPass=/bin/true", repo_url, target_directory])
 
 def update_repo(repo_directory):
     if os.path.exists(repo_directory):
-        os.chdir(repo_directory)
-        try:
-            subprocess.run(["git", "pull"])
-        except subprocess.CalledProcessError as e:
-            print(f"Error updating repository '{repo_directory}': {e}")
+        for subdir in os.listdir(repo_directory):
+            subdir_path = os.path.join(repo_directory, subdir)
+            if os.path.isdir(subdir_path):
+                repo_work_tree = os.path.join(subdir_path, ".git")
+                try:
+                    result = subprocess.run(["git", "--work-tree=" + subdir_path, "--git-dir=" + repo_work_tree, "pull", "origin", "master"], capture_output=True, text=True)
+                    output = result.stdout.strip()  # Вивід команди без зайвих пробілів та переносів рядка
+                    if "Already up to date." not in output:
+                        print(output)
+                    else:
+                        print("Repository is already up to date. Waiting before the next run...")
+                        time.sleep(wait_time)
+                except subprocess.CalledProcessError as e:
+                    print(f"Error updating repository '{subdir_path}': {e}")
     else:
         print(f"Error: Repository directory '{repo_directory}' does not exist.")
 
@@ -33,10 +42,6 @@ def process_json_file(json_path, target_root_directory):
 
             if os.path.exists(repo_directory):
                 update_repo(repo_directory)
-                try:
-                    subprocess.run(["git", "push"], cwd=repo_directory)
-                except subprocess.CalledProcessError as e:
-                    print(f"Error pushing changes for repository '{repo_directory}': {e}")
             else:
                 download_repo(repo_url, repo_directory)
 
