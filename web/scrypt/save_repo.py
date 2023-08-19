@@ -4,24 +4,17 @@ import json
 import sys
 
 def get_repositories(api_url):
-    # каталог подефолту
     dname = '/json/git'
-    # Визначаємо ім'я для папки
-    name = api_url.split("/")[-1]  # Отримуємо останню частину URL
-
-    # Оновлений URL GitHub API для організацій
+    name = api_url.split("/")[-1]
+  
     api_url = f"https://api.github.com/orgs/{name}/repos"
-
-    # Масив для збереження репозиторіїв
+   
     repositories = []
 
-    # Функція для збирання даних про репозиторії
     def fetch_repositories(page=1):
         response = requests.get(f"{api_url}?page={page}")
-
-        # Перевірка статусу відповіді (200 означає успішний запит)
+        
         if response.status_code != 200:
-            print(f"Помилка отримання даних. Статус код: {response.status_code}")
             return
 
         try:
@@ -29,23 +22,19 @@ def get_repositories(api_url):
         except json.JSONDecodeError:
             return
 
-        # Збираємо посилання на репозиторії в масив
         for item in data:
             repositories.append(item["html_url"])
-
-        # Перевіряємо чи є наступна сторінка пагінації
+  
         if data:
             fetch_repositories(page + 1)
     
     fetch_repositories()
-
-    # Записуємо посилання на репозиторії у JSON-файл
+  
     with open(f"{dname}/{name}.json", "w") as file:
         json.dump({"urls": repositories}, file)
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print("Введіть URL GitHub організації як аргумент командного рядка.")
     else:
         api_url = sys.argv[1]
         get_repositories(api_url)

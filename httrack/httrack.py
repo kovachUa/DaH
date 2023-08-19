@@ -26,9 +26,7 @@ while True:
                 for url in data['urls']:
                     run_backup(url, user_agent, backup_path)
                     
-        # Завершення роботи, чекання та перезапуск
-        print("Робота завершена. Чекання перед наступним запуском...")
+        # Shutting down, waiting and restarting
         time.sleep(sleep_time)
     else:
-        print(f"Файл {json_file_path} не існує. Очікування {wait_time} секунд...")
         time.sleep(wait_time)
