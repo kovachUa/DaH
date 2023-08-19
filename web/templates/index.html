@@ -39,18 +39,7 @@
     <input type="text" id="site_url" placeholder="Site">
     <button type="button" onclick="runSiteUrlScript()">Run</button>
     <script>
-        function runYoutubeScript() {
-            var youtube_url = document.getElementById("youtube_url").value;
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/run_youtube", true);
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    alert(xhr.responseText);
-                }
-            };
-            xhr.send("youtube_url=" + youtube_url);
-        }
+
 
         function runSaveRepoScript() {
             var repo_url = document.getElementById("repo_url").value;

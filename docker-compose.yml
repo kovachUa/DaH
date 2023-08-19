@@ -10,13 +10,17 @@ services:
       - ./data/json:/json
     ports:
       - 9000:5001
-
-
-  youtube:
+  httrack:
     build:
       context: .
-      dockerfile: ./youtube/Dockerfile
+      dockerfile: ./httrack/Dockerfile
     volumes:
-      - ./data/mirror/youtube:/mirror/youtube/
+      - ./data/mirror:/mirror
       - ./data/json:/json
-    tty: true
+  git:
+    build:
+      context: .
+      dockerfile: ./git/Dockerfile
+    volumes:
+      - ./data/mirror:/mirror
+      - ./data/json:/json

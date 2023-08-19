@@ -7,11 +7,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/run_youtube', methods=['POST'])
-def run_youtube():
-    youtube_url = request.form['youtube_url']
-    subprocess.Popen(['python3', './scrypt/youtube.py', youtube_url])
-    return "Script execution started with YouTube URL: " + youtube_url
+
 
 @app.route('/save_repo', methods=['POST'])
 def save_repo():
