@@ -5,12 +5,12 @@ import sys
 
 def get_repositories(api_url):
     # каталог подефолту
-    dname = '/json/repos'
+    dname = '/json/git'
     # Визначаємо ім'я для папки
-    name = api_url.split("/")[-2]
+    name = api_url.split("/")[-1]  # Отримуємо останню частину URL
 
-    # Створюємо папку для збереження репозиторіїв
-    os.makedirs("reposgit", exist_ok=True)
+    # Оновлений URL GitHub API для організацій
+    api_url = f"https://api.github.com/orgs/{name}/repos"
 
     # Масив для збереження репозиторіїв
     repositories = []
@@ -44,6 +44,8 @@ def get_repositories(api_url):
         json.dump({"urls": repositories}, file)
 
 if __name__ == "__main__":
-    # Передайте URL GitHub API як аргумент командного рядка
+    if len(sys.argv) < 2:
+        print("Введіть URL GitHub організації як аргумент командного рядка.")
+    else:
         api_url = sys.argv[1]
         get_repositories(api_url)

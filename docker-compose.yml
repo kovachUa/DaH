@@ -11,10 +11,12 @@ services:
     ports:
       - 9000:5001
 
-  httrack:
+
+  youtube:
     build:
       context: .
-      dockerfile: ./httrack/Dockerfile
+      dockerfile: ./youtube/Dockerfile
     volumes:
-      - ./data/mirror:/mirror
+      - ./data/mirror/youtube:/mirror/youtube/
       - ./data/json:/json
+    tty: true

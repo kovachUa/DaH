@@ -1,13 +1,10 @@
-FROM python:3.8-slim
-
+FROM python:3.8
+RUN pip install requests
+RUN apt-get update && apt-get install -y httrack
 RUN useradd -ms /bin/bash user
-
-WORKDIR /home/user
-
-COPY git.py .
-
-RUN chown user:user /home/user
-
-RUN chmod +x /home/user/git.py
-
-CMD ["python3", "/home/user/git.py"] 
+WORKDIR /app
+COPY * ./
+USER user
+CMD ["chown","user:user","/mirror"]
+CMD ["chown","user:user","/json"]
+CMD ["python3", "git.py"]
