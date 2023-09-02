@@ -20,6 +20,12 @@ def site_url():
     site_url = request.form['site_url']
     subprocess.Popen(['python3', './scrypt/site_url.py', site_url])
     return "Script execution started with Site URL: " + site_url
-
+    
+@app.route('/youtube_url', methods=['POST'])
+def youtube_url():
+    youtube_url = request.form['youtube_url']
+    subprocess.Popen(['python3', './scrypt/youtube_url.py', youtube_url])
+    return "Script execution started with YouTube URL: " + youtube_url
+    
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port = 5001)
+    app.run(debug=True,host='0.0.0.0',port = 5001)

@@ -24,3 +24,14 @@ services:
     volumes:
       - ./data/mirror:/mirror
       - ./data/json:/json
+
+  youtube:
+    build:
+      context: .
+      dockerfile: ./youtube/Dockerfile
+    volumes:
+      - ./data/mirror:/mirror
+      - ./data/json:/json
+
+
+
