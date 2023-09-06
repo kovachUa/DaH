@@ -8,30 +8,7 @@ services:
     volumes:
       - ./data/mirror:/mirror
       - ./data/json:/json
-    ports:
-      - 9000:5001
-  httrack:
-    build:
-      context: .
-      dockerfile: ./httrack/Dockerfile
-    volumes:
-      - ./data/mirror:/mirror
-      - ./data/json:/json
-  git:
-    build:
-      context: .
-      dockerfile: ./git/Dockerfile
-    volumes:
-      - ./data/mirror:/mirror
-      - ./data/json:/json
 
-  youtube:
-    build:
-      context: .
-      dockerfile: ./youtube/Dockerfile
-    volumes:
-      - ./data/mirror:/mirror
-      - ./data/json:/json
 
 
 
