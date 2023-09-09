@@ -27,30 +27,37 @@ body {
   margin-bottom: 10px;
 }
 
+.input-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
 .input-container input,
 .input-container button {
   font-family: 'DESTENCI', sans-serif;
   padding: 10px;
-  font-size: 20px; /* Змінимо розмір шрифту для полів вводу та кнопок */
+  font-size: 20px;
   border: 2px solid #050801;
   background: rgba(42, 162, 42, 0.35);
   color: #03e9f4;
   font-weight: 600;
   transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  width: 100%; /* Зробити всі елементи однакової ширини */
 }
 
 .input-container input {
-  width: 75%;
-  height: auto; /* Робимо висоту поля вводу автоматичною, щоб вона відповідала розміру кнопки */
+  height: auto;
 }
 
 .input-container button {
-  width: auto; /* Змінимо ширину кнопки на автоматичну, щоб вона відповідала розміру тексту */
+  margin-top: 10px; /* Відступ між кнопками */
 }
 
 .button {
   outline: 0;
-  position: relative;
+  position: center;
   display: inline-block;
   font-size: 20px;
   overflow: hidden;
@@ -58,6 +65,7 @@ body {
   color: #000;
   font-weight: 600;
   transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+  width: 100%; /* Зробити всі елементи однакової ширини */
 }
 
 .button:hover {
@@ -66,6 +74,8 @@ body {
   box-shadow: 0 0 5px #FFFF00, 0 0 20px rgb(255 255 0 / 0.8), 0 0 35px rgb(255 255 0 / 0.7), 0 0 50px rgb(255 255 0 / 0.6);
   border-color: #fff;
 }
+
+
 
 /* Стилі для навігаційного меню (nav) */
 .site-nav {

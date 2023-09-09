@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>DaH</title>
+    <!-- Підключаємо стилі для головної сторінки -->
+    <link rel="stylesheet" href="/static/style/home.css">
+    <!-- Підключаємо стилі для сторінки з torent -->
+
+    <script src="/static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Частина сторінки для головної сторінки -->
+        <header>
+            <nav class="site-nav">
+                <a href="/revision/">Revision</a>
+                <a href="/arhiv/">Arhiv</a>
+                <a href="/ipfs/">IPFS</a>
+                <a href="/">Home</a>
+                <a href="/settings/">Settings</a>
+            </nav>
+        </header>
+        <main>
+            <section class="app">
+                <div class="input-container">
+                    <input v-model="inputValue" id="input_value" placeholder="Enter URL or File">
+                    <div class="button-container">
+                        <button class="button add-file-button" type="button" @click="addFile">Add File</button>
+                        <button class="button" type="button" @click="clearInput">Clear</button>
+                        <button class="button" type="button" @click="pause">Pause</button>
+                        <button class="button" type="button" @click="stop">Stop</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <h1>Kovach</h1>
+        </footer>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                inputValue: '',
+            },
+            methods: {
+                addFile() {
+                    const fileInput = document.getElementById('file_input');
+                    fileInput.click();
+                },
+                clearInput() {
+                    this.inputValue = '';
+                },
+                pause() {
+                    // Додайте функціональність для паузи тут
+                    console.log('Пауза');
+                },
+                stop() {
+                    // Додайте функціональність для зупинки тут
+                    console.log('Стоп');
+                },
+            },
+        });
+    </script>
+</body>
+</html>

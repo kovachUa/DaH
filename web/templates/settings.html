@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перемикач</title>
+</head>
+<body>
+    <button id="toggleButton">Увімкнути</button>
+
+    <script>
+        // Отримуємо посилання на кнопку за її ідентифікатором
+        var button = document.getElementById('toggleButton');
+
+        // Додаємо обробник подій для кнопки
+        button.addEventListener('click', function () {
+            // Отримуємо поточний текст кнопки
+            var buttonText = button.innerText;
+
+            // Перемикаємо текст кнопки та змінюємо її стиль
+            if (buttonText === 'Увімкнути') {
+                button.innerText = 'Вимкнути';
+                button.style.backgroundColor = 'red'; // Змінюємо колір фону
+            } else {
+                button.innerText = 'Увімкнути';
+                button.style.backgroundColor = 'green'; // Змінюємо колір фону
+            }
+        });
+    </script>
+</body>
+</html>
+ 

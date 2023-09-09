@@ -3,11 +3,30 @@ import subprocess
 
 app = Flask(__name__)
 
+
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
+@app.route('/revision/', methods=['GET'])
+def revision():
+    return render_template('revision.html')
+    
+@app.route('/settings/', methods=['GET'])
+def settings():
+    return render_template('settings.html')
+    
+@app.route('/arhiv/', methods=['GET'])
+def arhiv():
+    return render_template('arhiv.html')
 
+@app.route('/ipfs/', methods=['GET'])
+def ipfs():
+    return render_template('ipfs.html')
+    
+@app.route('/torent/', methods=['GET'])
+def torent():
+    return render_template('torent.html')    
 
 @app.route('/save_repo', methods=['POST'])
 def save_repo():

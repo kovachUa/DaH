@@ -4,11 +4,9 @@ services:
   web:
     build:
       context: .
-      dockerfile: ./web/Dockerfile
+      dockerfile: ./Dockerfiledir/webd
     volumes:
       - ./data/mirror:/mirror
       - ./data/json:/json
-
-
-
-
+    ports:
+      - 9000:5001

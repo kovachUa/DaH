@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <title>DaH</title>
     <link rel="stylesheet" href="/static/style/home.css">
-    <script src="/static/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 </head>
 <body>
     <div id="app">
         <header>
             <nav class="site-nav">
-                <a href="/revision/">Revision</a>
-                <a href="/arhiv/">Arhiv</a>
-                <a href="/ipfs/">IPFS</a>
-                <a href="/torent/">Torrent</a>
-                <a href="/settings/">Settings</a>
+                <a href="#">Revision</a>
+                <a href="#">Arhiv</a>
+                <a href="#">IPFS</a>
+                <a href="#">Torrent</a>
+                <a href="settings.html">Settings</a>
             </nav>
         </header>
         <main>
