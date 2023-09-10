@@ -1,4 +1,4 @@
-/* Завантажте і підключіть шрифт Roboto Light через @font-face */
+*{margin:0; padding:0; outline:0;box-sizing:border-box;} 
 @font-face {
   font-family: 'DESTENCI';
   font-weight: normal;
@@ -20,18 +20,13 @@ body {
   color: #010002;
 }
 
-.input-container {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
 
 .input-container {
   text-align: center;
-  display: flex;
+  display: stretch;
   align-items: center;
   margin-bottom: 10px;
+  
 }
 
 .input-container input,
@@ -44,7 +39,7 @@ body {
   color: #03e9f4;
   font-weight: 600;
   transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-  width: 100%; /* Зробити всі елементи однакової ширини */
+  width: 25%; /* Зробити всі елементи однакової ширини */
 }
 
 .input-container input {
@@ -65,7 +60,7 @@ body {
   color: #000;
   font-weight: 600;
   transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-  width: 100%; /* Зробити всі елементи однакової ширини */
+  width: 25%;
 }
 
 .button:hover {
