@@ -21,8 +21,9 @@
             <section class="app">
                 <div class="input-container">
                   <input v-model="inputValue" id="input_value" placeholder="Enter URL or File">
+                  <input type="file" ref="fileInput" style="display: none" @change="handleFileChange">
                 <div class="button-container">
-                  <button class="button add-file-button" type="button" @click="addFile">Add File</button>
+                  <button class="button add-file-button" type="button" @click="openFileInput">Add File</button>
                   <button class="button" type="button" @click="clearInput">Clear</button>
                   <button class="button" type="button" @click="pause">Pause</button>
                   <button class="button" type="button" @click="stop">Stop</button>
@@ -35,30 +36,35 @@
         </footer>
     </div>
 
-    <script>
-        const app = new Vue({
-            el: '#app',
-            data: {
-                inputValue: '',
-            },
-            methods: {
-                addFile() {
-                    const fileInput = document.getElementById('file_input');
-                    fileInput.click();
-                },
-                clearInput() {
-                    this.inputValue = '';
-                },
-                pause() {
-                    // Додайте функціональність для паузи тут
-                    console.log('Пауза');
-                },
-                stop() {
-                    // Додайте функціональність для зупинки тут
-                    console.log('Стоп');
-                },
-            },
-        });
-    </script>
+<script>
+const app = new Vue({
+  el: '#app',
+  data: {
+    inputValue: '',
+  },
+  methods: {
+    openFileInput() {
+      // Викликаємо клік на прихованому input для вибору файлу
+      this.$refs.fileInput.click();
+    },
+    handleFileChange(event) {
+      const selectedFile = event.target.files[0];
+      if (selectedFile) {
+        // Отримали вибраний файл. Тут ви можете його використовувати, наприклад, завантажити на сервер або обробити його іншим чином.
+        console.log('Додано файл:', selectedFile.name);
+      }
+    },
+    clearInput() {
+      this.inputValue = '';
+    },
+    pause() {
+      console.log('Пауза');
+    },
+    stop() {
+      console.log('Стоп');
+    },
+  },
+});
+</script>
 </body>
 </html>

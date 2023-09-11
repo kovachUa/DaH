@@ -1,4 +1,4 @@
-*{margin:0; padding:0; outline:0;box-sizing:border-box;} 
+*{margin:0; padding:0; outline:0;box-sizing:border-box;}
 @font-face {
   font-family: 'DESTENCI';
   font-weight: normal;
@@ -14,62 +14,13 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: #000 url('/static/img/cyborg.png') no-repeat center center fixed;
+  background: url('/static/img/cyborg.png') no-repeat center center fixed;
   background-size: cover;
   text-shadow: 0 0 10px rgba(42, 162, 42, 0.7);
   color: #010002;
-}
-
-
-.input-container {
-  text-align: center;
-  display: stretch;
-  align-items: center;
-  margin-bottom: 10px;
+  grid-gap: 20px:
   
 }
-
-.input-container input,
-.input-container button {
-  font-family: 'DESTENCI', sans-serif;
-  padding: 10px;
-  font-size: 20px;
-  border: 2px solid #050801;
-  background: rgba(42, 162, 42, 0.35);
-  color: #03e9f4;
-  font-weight: 600;
-  transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-  width: 25%; /* Зробити всі елементи однакової ширини */
-}
-
-.input-container input {
-  height: auto;
-}
-
-.input-container button {
-  margin-top: 10px; /* Відступ між кнопками */
-}
-
-.button {
-  outline: 0;
-  position: center;
-  display: inline-block;
-  font-size: 20px;
-  overflow: hidden;
-  cursor: pointer;
-  color: #000;
-  font-weight: 600;
-  transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
-  width: 25%;
-}
-
-.button:hover {
-  background-color: #FFFF00;
-  color: #000;
-  box-shadow: 0 0 5px #FFFF00, 0 0 20px rgb(255 255 0 / 0.8), 0 0 35px rgb(255 255 0 / 0.7), 0 0 50px rgb(255 255 0 / 0.6);
-  border-color: #fff;
-}
-
 
 
 /* Стилі для навігаційного меню (nav) */
@@ -117,8 +68,28 @@ body {
 .site-footer a:hover {
   color: #FFFF00; /* Зміна кольору при наведенні курсора */
 }
-
 /* Додайте стилі для відступу між #app і .app */
 .app {
   margin-top: 50px; /* Додайте бажаний відступ */
+}
+
+.input-container input,
+.input-container button {
+  font-family: 'DESTENCI', sans-serif;
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid #050801;
+  background: rgba(42, 162, 42, 0.35);
+  color: #03e9f4;
+  font-weight: 600;
+  transition: box-shadow 0.5s ease-in-out, border-color 0.5s ease-in-out;
+}
+
+.input-container input {
+  width: 75%;
+  height: auto;
+}
+
+.input-container button {
+  width: auto;
 }
