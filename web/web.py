@@ -8,9 +8,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/revision/', methods=['GET'])
+@app.route('/Files/', methods=['GET'])
 def revision():
-    return render_template('revision.html')
+    return render_template('Files.html')
     
 @app.route('/settings/', methods=['GET'])
 def settings():
@@ -19,14 +19,6 @@ def settings():
 @app.route('/arhiv/', methods=['GET'])
 def arhiv():
     return render_template('arhiv.html')
-
-@app.route('/ipfs/', methods=['GET'])
-def ipfs():
-    return render_template('ipfs.html')
-    
-@app.route('/torent/', methods=['GET'])
-def torent():
-    return render_template('torent.html')    
 
 @app.route('/save_repo', methods=['POST'])
 def save_repo():

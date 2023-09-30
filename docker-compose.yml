@@ -10,3 +10,19 @@ services:
       - ./data/json:/json
     ports:
       - 9000:5001
+
+  git:
+    build:
+      context: .
+      dockerfile: ./Dockerfiledir/gitd
+    volumes:
+      - ./data/mirror:/mirror/git
+      - ./data/json:/json/git
+
+  httrack:
+    build:
+      context: .
+      dockerfile: ./Dockerfiledir/httrackd
+    volumes:
+      - ./data/mirror:/mirror/httrack
+      - ./data/json:/json/httrack
