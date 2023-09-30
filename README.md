@@ -25,9 +25,3 @@ The following formats are used for entering links:
 3. In the terminal, navigate to the repository directory.
 4. Launch the Docker container using the `docker-compose up` command.
 5. After launching, the web server will be accessible at `http://127.0.0.1:9000`.
-
-## Limitations
-
-Currently, the project only supports working with websites through the Firefox browser.
-
-This project enhances the process of storing and loading Git repositories and websites, making it more convenient and predictable by leveraging Docker containers.
