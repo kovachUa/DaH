@@ -1,4 +1,4 @@
-![GitHub Logo](https://github.com/kovachUa/DaH/blob/main/DaH.jpg)
+
 
 # Docker Project for Storing and Loading Git and Websites
 
