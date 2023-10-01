@@ -21,7 +21,7 @@ while True:
             
             if 'urls' in data and isinstance(data['urls'], list) and len(data['urls']) > 0:
                 user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:56.0) Gecko/20100101 Firefox/56.0"
-                backup_path = '/site'
+                backup_path = '/mirror'
                 
                 for url in data['urls']:
                     run_backup(url, user_agent, backup_path)
