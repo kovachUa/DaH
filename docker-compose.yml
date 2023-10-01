@@ -16,13 +16,13 @@ services:
       context: .
       dockerfile: ./Dockerfiledir/gitd
     volumes:
-      - ./data/mirror:/mirror/git
-      - ./data/json:/json/git
+      - ./data/mirror/git:/mirror
+      - ./data/json/git:/git
 
   httrack:
     build:
       context: .
       dockerfile: ./Dockerfiledir/httrackd
     volumes:
-      - ./data/mirror:/mirror/httrack
-      - ./data/json:/json/httrack
+      - ./data/mirror/httrack:/mirror
+      - ./data/json:/site/
