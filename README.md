@@ -1,19 +1,22 @@
-# Docker Проект для Зберігання та Завантаження Веб-сайтів
+# Docker Проект для Зберігання та Завантаження Веб-сайтів, Репозиторіїв та YouTube Каналів
 
-Цей репозиторій містить Docker проект, розроблений для зручного зберігання та завантаження веб-сайтів за допомогою інструменту `httrack`. Використання Docker дозволяє легко ідентифікувати та ізолювати всі необхідні залежності, що робить робочий процес більш передбачуваним і спрощує розгортання.
+Цей репозиторій містить Docker проект, розроблений для зручного зберігання та завантаження веб-сайтів за допомогою інструменту `httrack`, а також посилань на репозиторії організацій на GitHub та YouTube канали. Використання Docker дозволяє легко ідентифікувати та ізолювати всі необхідні залежності, що робить робочий процес більш передбачуваним і спрощує розгортання.
 
 ## Структура Репозиторію
 
 Репозиторій містить наступні файли та каталоги:
 
 - `./data/mirror/site`: Каталог для зберігання зеркал веб-сайтів.
-- `./data/json/site`: JSON файли, які містять посилання на веб-сайти у форматі JSON.
+- `./data/json/`: JSON файли, які містять посилання на веб-сайти у форматі JSON.
+
 
 ## Формат Посилань
 
 Для додавання посилань використовуйте такий формат:
 
 - Для веб-сайтів: `https://site.si`
+- Для репозиторіїв на GitHub: `https://github.com/repo`
+- Для YouTube каналів: `https://www.youtube.com/@channel/
 
 ## Інструкції З Використання
 
@@ -23,27 +26,30 @@
 4. Запустіть Docker контейнер, використовуючи команду `docker-compose up`.
 5. Після запуску веб-сервер буде доступний за адресою http://127.0.0.1:9000.
 
-# Docker Project for Storing and Downloading Websites
+6. # Docker Project for Storing and Downloading Websites, Repositories and YouTube Channels
 
-This repository contains a Docker project designed for convenient storage and downloading of websites using the `httrack` tool. Utilizing Docker makes it easy to identify and isolate all necessary dependencies, making the workflow more predictable and simplifying deployment.
+This repository contains a Docker project designed to easily store and download websites using the `httrack' tool, as well as links to organizations' GitHub repositories and YouTube channels. Using Docker makes it easy to identify and isolate all required dependencies, making the workflow more predictable and simplifying deployment.
 
-## Repository Structure
+## Structure of the Repository
 
-The repository includes the following files and directories:
+The repository contains the following files and directories:
 
-- `./data/mirror/site`: A directory for storing mirrors of websites.
-- `./data/json/site`: JSON files containing links to websites in JSON format.
+- `./data/mirror/site`: Directory for storing website mirrors.
+- `./data/json/`: JSON files that contain links to websites in JSON format.
 
-## Link Format
+
+## Link format
 
 To add links, use the following format:
 
 - For websites: `https://site.si`
+- For GitHub repositories: `https://github.com/repo`
+- For YouTube channels: `https://www.youtube.com/@channel/
 
-## Usage Instructions
+## Instructions For Use
 
-1. Install Docker on your computer if it's not already installed.
+1. Install Docker on your computer if it is not already installed.
 2. Clone this repository to your computer.
 3. In the terminal, navigate to the repository directory.
-4. Launch the Docker container using the `docker-compose up` command.
-5. After launching, the web server will be accessible at http://127.0.0.1:9000.
+4. Start the Docker container using the `docker-compose up' command.
+5. Once started, the web server will be available at http://127.0.0.1:9000.
