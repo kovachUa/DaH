@@ -3,7 +3,7 @@ import os
 import subprocess
 import time
 
-json_file_path = '/json/site/site.json'
+json_file_path = '/json/site.json'
 wait_time = 6
 sleep_time = 6
 def run_backup(url, user_agent, backup_path):
