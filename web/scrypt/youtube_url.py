@@ -12,7 +12,7 @@ def main():
         return
 
     youtube_url = sys.argv[1]
-    youtube_file_path = "/json/youtube/youtube.json"  # Шлях до вашого JSON-файлу для YouTube URL
+    youtube_file_path = "/json/youtube.json"  # Шлях до вашого JSON-файлу для YouTube URL
 
     try:
         with open(youtube_file_path, "r") as youtube_file:
