@@ -10,7 +10,7 @@ def main():
         return
 
     youtube_url = sys.argv[1]
-    txt_file_path = "youtube_channels.txt"  # Назва файлу для збереження YouTube каналів
+    txt_file_path = "/json/youtube_channels.txt"  # Назва файлу для збереження YouTube каналів
 
     add_youtube(None, youtube_url, txt_file_path)
     
