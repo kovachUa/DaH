@@ -1,29 +1,19 @@
 import os
-import json
 import sys
 
-def add_youtube(data, youtube_url):
-    if "youtube_urls" not in data:
-        data["youtube_urls"] = []
-    data["youtube_urls"].append(youtube_url)
+def add_youtube(data, youtube_url, txt_file_path):
+    with open(txt_file_path, "a") as txt_file:
+        txt_file.write(youtube_url + "\n")
 
 def main():
     if len(sys.argv) != 2:
         return
 
     youtube_url = sys.argv[1]
-    youtube_file_path = "/json/youtube.json"  # Шлях до вашого JSON-файлу для YouTube URL
+    txt_file_path = "youtube_channels.txt"  # Назва файлу для збереження YouTube каналів
 
-    try:
-        with open(youtube_file_path, "r") as youtube_file:
-            data = json.load(youtube_file)
-    except (FileNotFoundError, json.JSONDecodeError):
-        data = {"youtube_urls": []}
-
-    add_youtube(data, youtube_url)
+    add_youtube(None, youtube_url, txt_file_path)
     
-    with open(youtube_file_path, "w") as youtube_file:
-        json.dump(data, youtube_file, indent=4)
-
 if __name__ == "__main__":
     main()
+
