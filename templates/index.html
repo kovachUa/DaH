@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>DaH</title>
+    <link rel="stylesheet" href="/static/style/home.css">
+    <script src="/static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+        </aside>
+        <main>
+            <section class="app">
+                <div class="input-container">
+                    <input v-model="repoUrl" id="repo_url" placeholder="Repo">
+                    <button class="button" type="button" @click="runSaveRepoScript">Add</button>
+                    <button class="button" type="button" @click="runSaveRepoScript">Down</button>
+                </div>
+                <div class="input-container">
+                    <input v-model="siteUrl" id="site_url" placeholder="Site">
+                    <button class="button" type="button" @click="runSiteUrlScript">Add</button>
+                    <button class="button" type="button" @click="runSaveRepoScript">Down</button>
+                </div>
+                <div class="input-container">
+                    <input v-model="youtubeUrl" id="youtube_url" placeholder="YouTube">
+                    <button class="button" type="button" @click="runYouTubeScript">Add</button>
+                    <button class="button" type="button" @click="runSaveRepoScript">Down</button>
+                </div>
+                </div>
+
+</div>
+            </section>
+        </main>
+        <footer class="site-footer">
+            <h1>Kovach</h1>
+        </footer>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                repoUrl: '',
+                siteUrl: '',
+                youtubeUrl: ''
+            },
+            methods: {
+                runSaveRepoScript() {
+                    var repo_url = this.repoUrl;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/save_repo", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.send("repo_url=" + encodeURIComponent(repo_url));
+                },
+                runSiteUrlScript() {
+                    var site_url = this.siteUrl;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/site_url", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.send("site_url=" + encodeURIComponent(site_url));
+                },
+                runYouTubeScript() {
+                    var youtube_url = this.youtubeUrl;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/youtube_url", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.send("youtube_url=" + encodeURIComponent(youtube_url));
+                },
+                runhttrack_down() {
+                    var httrack_down = this.repoUrl;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/httrack_down", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.send("httrack_down=" + encodeURIComponent(httrack_down));
+                },
+                runyoutube_down() {
+                    var youtube_down = this.repoUrl;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/youtube_down", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.send("youtube_down=" + encodeURIComponent(youtube_down));
+                },
+                rungit_down() {
+                    var git_down = this.repoUrl;
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "/git_down", true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4 && xhr.status === 200) {
+                            alert(xhr.responseText);
+                        }
+                    };
+                    xhr.send("git_down=" + encodeURIComponent(git_down));
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>
